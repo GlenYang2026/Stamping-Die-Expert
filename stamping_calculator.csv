@@ -1,0 +1,42 @@
+# stamping_calculator.csv —— 冲压力 / 吨位 / 材料质量 计算模板（可导入 Excel 按列展开）
+#
+# 字段说明：
+#   material            材料牌号（见 materials_db.csv）
+#   L_mm                剪切周长（落料轮廓周长，mm）
+#   t_mm                板厚（mm）
+#   UTS_MPa             抗拉强度（MPa，取自材料库）
+#   tau_factor          剪切强度经验系数（铜/铝取 0.7，钢取 0.8，不锈钢 0.7~0.75；见 materials_db.csv 的 tau_factor）
+#   tau_MPa             剪切强度 = UTS * tau_factor（MPa）
+#   F_shear_N           纯冲裁力 = L * t * tau（N）
+#   F_shear_kN          冲裁力 kN
+#   F_shear_ton         冲裁力 吨（÷9806.65，1 tf = 9806.65 N）
+#   strip_pct           卸料力占冲裁力比例（钢 0.05~0.10，铜/铝 0.03~0.08；见材料库）
+#   eject_pct           推件力占冲裁力比例（钢 0.03~0.08，铜/铝 0.02~0.06；见材料库）
+#   F_total_N           总冲压力 = F_shear * (1 + strip_pct + eject_pct)（N）  —— 选机台必须用总力！
+#   F_total_ton         总冲压力 吨
+#   sf                  安全系数（默认 1.25）
+#   calc_ton_with_sf    总力 × 安全系数（未取整中间值）
+#   machine_tier_t      实际建议机台档位（≥ calc_ton_with_sf，向上取 5/10/20/30/50/100/200 t）
+#   density_g_cm3       密度（g/cm3）
+#   part_area_mm2       单件展开面积（mm2，与 L 不同维度，分开填）
+#   mass_g              单件质量 = part_area * t * density / 1000（g）
+#   material_cost_per_kg 材料单价（元/kg）
+#   material_cost_total 单件材料费 = mass_g / 1000 * material_cost_per_kg（元）
+#
+# 公式（Excel 可直接用）：
+#   tau_MPa        = UTS_MPa * tau_factor
+#   F_shear_N      = L_mm * t_mm * tau_MPa
+#   F_shear_ton    = F_shear_N / 9806.65
+#   F_total_N      = F_shear_N * (1 + strip_pct + eject_pct)
+#   F_total_ton    = F_total_N / 9806.65
+#   calc_ton_with_sf = F_total_ton * sf
+#   machine_tier_t = CEILING(calc_ton_with_sf, 就近档位)
+#   mass_g         = part_area_mm2 * t_mm * density_g_cm3 / 1000
+#   material_cost_total = mass_g / 1000 * material_cost_per_kg
+
+material,L_mm,t_mm,UTS_MPa,tau_factor,tau_MPa,F_shear_N,F_shear_kN,F_shear_ton,strip_pct,eject_pct,F_total_N,F_total_ton,sf,calc_ton_with_sf,machine_tier_t,density_g_cm3,part_area_mm2,mass_g,material_cost_per_kg,material_cost_total
+T2,180,2.0,210,0.70,147,52920,52.92,5.39,0.05,0.04,57682.8,5.88,1.25,7.35,10,8.94,360,6.44,30,0.19
+304,200,1.5,520,0.72,374,112200,112.20,11.44,0.07,0.05,125664,12.81,1.25,16.02,20,7.93,300,3.57,28,0.10
+SPCC,250,1.0,350,0.80,280,70000,70.00,7.14,0.08,0.06,79800,8.14,1.25,10.17,20,7.85,500,3.93,6,0.02
+5052,150,2.0,230,0.70,161,48300,48.30,4.92,0.04,0.03,51922.5,5.30,1.25,6.62,10,2.68,280,1.50,22,0.03
+Silicon,120,0.5,470,0.75,353,21180,21.18,2.16,0.06,0.05,23408.4,2.39,1.25,2.98,5,7.65,150,0.57,12,0.01

@@ -1,0 +1,30 @@
+﻿# nesting_calculator.csv —— 排样利用率计算模板（可导入 Excel 按列展开）
+#
+# 字段说明：
+#   case            方案名（单排/双排/斜排…）
+#   shape           零件形状（矩形近似用 part_w×part_l；圆料填 part_w=part_l=直径）
+#   part_w_mm       零件送料方向垂直尺寸（宽/直径）
+#   part_l_mm       零件送料方向尺寸（长/直径）
+#   t_mm            板厚（用于搭边取值参考）
+#   a_mm            侧搭边（一般 1.5~3 × t）
+#   a1_mm           步距间搭边（一般 1.5~3 × t）
+#   rows            每个步距内并排零件数（单排=1，双排=2）
+#   B_mm            料宽 = part_w × rows + (rows+1) × a      （双排两侧+中间各一条搭边）
+#   P_mm            步距 = part_l + a1
+#   part_area_mm2   单件面积（矩形=w×l；圆=π×(d/2)²；异形填实际展开面积）
+#   n_per_pitch     每个步距内的零件数（= rows）
+#   strip_area_mm2  每个步距占用料面积 = B × P
+#   util_pct        材料利用率 = n_per_pitch × part_area / strip_area × 100
+#
+# Excel 公式：
+#   B_mm        = part_w_mm * rows + (rows + 1) * a_mm
+#   P_mm        = part_l_mm + a1_mm
+#   strip_area  = B_mm * P_mm
+#   util_pct    = n_per_pitch * part_area_mm2 / strip_area * 100
+#   （异形件若有内孔，part_area 应扣减废料；斜排利用率通常比直排高 5~10 个百分点，需按中心距精确算）
+
+case,shape,part_w_mm,part_l_mm,t_mm,a_mm,a1_mm,rows,B_mm,P_mm,part_area_mm2,n_per_pitch,strip_area_mm2,util_pct
+单排_矩形,rect,40,60,2.0,3,3,1,46,63,2400,1,2898,82.8
+双排_矩形,rect,40,60,2.0,3,3,2,89,63,2400,2,5607,85.6
+单排_圆料,circle,30,30,2.0,2.5,2.5,1,35,32.5,706.9,1,1137.5,62.1
+双排_圆料,circle,30,30,2.0,2.5,2.5,2,67.5,32.5,706.9,2,2193.8,64.5

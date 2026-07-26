@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="300">
+  <rect x="0" y="0" width="640" height="300" fill="#ffffff" stroke="#cccccc"/>
+  <text x="20" y="28" font-family="Arial" font-size="16" font-weight="bold">弯曲示意（V 形自由弯曲）</text>
+
+  <!-- 折弯前平板 -->
+  <rect x="40" y="210" width="240" height="20" fill="#e0e0ff" stroke="#0000aa"/>
+  <text x="110" y="250" font-size="12">弯曲前平板（料厚 t）</text>
+
+  <!-- 弯曲后 V 形 -->
+  <path d="M 360 230 L 420 150 L 480 230 Z" fill="none" stroke="#0000aa" stroke-width="14" stroke-linejoin="round"/>
+  <!-- 内圆角 r -->
+  <path d="M 420 150 L 420 195" stroke="#ff0000" stroke-width="2" stroke-dasharray="4 2"/>
+  <text x="424" y="180" font-size="12" fill="#ff0000">r 内圆角</text>
+  <!-- 中性层 -->
+  <path d="M 360 237 L 420 167 L 480 237" fill="none" stroke="#00aa00" stroke-width="2" stroke-dasharray="6 3"/>
+  <text x="360" y="262" font-size="12" fill="#00aa00">中性层 ρ=r+k·t</text>
+
+  <text x="500" y="160" font-size="12">B = 弯宽</text>
+  <text x="500" y="180" font-size="12">F_b = 1.33·B·t²·σb/(r+t)</text>
+  <text x="500" y="200" font-size="12">回弹随 σs↑ 增大</text>
+  <text x="500" y="220" font-size="12">硬态需过弯补偿</text>
+</svg>

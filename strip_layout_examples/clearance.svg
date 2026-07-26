@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="260">
+  <rect x="0" y="0" width="640" height="260" fill="#ffffff" stroke="#cccccc"/>
+  <text x="20" y="28" font-family="Arial" font-size="16" font-weight="bold">刀口间隙示意（双边总间隙 c = 凹模 − 凸模）</text>
+
+  <!-- 材料 -->
+  <rect x="80" y="120" width="380" height="24" fill="#e0e0ff" stroke="#0000aa"/>
+  <text x="225" y="137" font-size="12">板料 厚度 t</text>
+
+  <!-- 凸模（上） -->
+  <rect x="200" y="60" width="80" height="60" fill="none" stroke="#aa0000" stroke-width="3"/>
+  <text x="215" y="95" font-size="12" fill="#aa0000">凸模</text>
+
+  <!-- 凹模（下，左右两壁） -->
+  <rect x="196" y="144" width="20" height="60" fill="none" stroke="#0066aa" stroke-width="3"/>
+  <rect x="284" y="144" width="20" height="60" fill="none" stroke="#0066aa" stroke-width="3"/>
+  <text x="300" y="180" font-size="12" fill="#0066aa">凹模</text>
+
+  <!-- 间隙标注 -->
+  <line x1="280" y1="100" x2="284" y2="100" stroke="#ff8800" stroke-width="3"/>
+  <line x1="120" y1="100" x2="280" y2="100" stroke="#ff8800" stroke-width="1" stroke-dasharray="3 2"/>
+  <text x="285" y="95" font-size="13" fill="#ff8800">c = 凹模−凸模</text>
+  <text x="120" y="92" font-size="12" fill="#ff8800">双边间隙</text>
+
+  <text x="420" y="80" font-size="12">铜 T2(软): 4%~8% t</text>
+  <text x="420" y="102" font-size="12">不锈钢 304: 6%~10% t</text>
+  <text x="420" y="124" font-size="12">钢 SPCC: 6%~10% t</text>
+  <text x="420" y="146" font-size="12">间隙过大→毛刺/拉断</text>
+  <text x="420" y="168" font-size="12">间隙过小→二次剪切/崩刃</text>
+  <text x="420" y="190" font-size="12">本技能统一"双边"口径</text>
+</svg>
