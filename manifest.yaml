@@ -1,0 +1,48 @@
+# 冲压模具专家 Skill — 市场上架元数据
+# 本文件供 WorkBuddy 技能市场 / SkillHub / ClawHub 等渠道提交时读取。
+# 字段说明依据 WorkBuddy 企业 Skill 上传规范 + ClawHub/SkillHub 开发者文档。
+
+name: Stamping-Die-Expert              # 技能唯一标识（ID），小写中划线，全平台唯一
+title: 冲压模具专家 · MoldYang          # 客户端显示名称（SkillHub 卡片主标题）
+display_name: 冲压模具专家 · MoldYang (Stamping Die Expert)
+version: 1.0.0                          # 语义化版本号，须与 SKILL.md/skill.yaml 一致
+description: >-
+  冲压模具设计实战技能：冲裁/弯曲/拉深/翻边工艺计算、排样利用率、机台吨位（含卸料/推件总力）、
+  材料与模具报价、缺陷诊断、DFM 审查；含可运行 Python 计算脚本与 ezdxf 自动排样。
+  覆盖铜、铝、钢、不锈钢、硅钢、高强钢等常用材料。
+category: manufacturing                 # 类目：制造/工业。SkillHub/ClawHub 可在此大类下选细分
+author: MoldYang（老杨）
+author_contact: 502898119@qq.com
+license: CC BY-NC-SA 4.0                # 署名-非商业性使用-相同方式共享
+homepage: https://github.com/GlenYang2026/Stamping-Die-Expert
+repository: https://github.com/GlenYang2026/Stamping-Die-Expert
+tags:
+  - 冲压模具
+  - stamping
+  - 冲裁
+  - 弯曲
+  - 拉深
+  - 翻边
+  - 排样
+  - 吨位计算
+  - 模具报价
+  - 缺陷诊断
+  - DFM
+triggers:                               # 典型触发词（用于市场检索与技能触发）
+  - 冲压
+  - 冲裁
+  - 排样
+  - 排料
+  - 弯曲
+  - 拉深
+  - 翻边
+  - 级进模
+  - 落料
+  - 冲孔
+  - 刀口间隙
+  - 搭边
+  - 利用率
+  - 吨位
+  - 回弹
+  - 拉深比
+min_workbuddy_version: "1.0.0"

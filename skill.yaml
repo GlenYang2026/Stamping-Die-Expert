@@ -2,7 +2,7 @@ name: Stamping-Die-Expert
 version: 1.0.0
 description: "冲压模具设计技能（冲裁/弯曲/拉深/翻边工艺计算、排样利用率、机台总力与报价、缺陷诊断、DFM），含可运行 Python 计算脚本与 ezdxf 自动排样示例。"
 language: zh-CN
-author: GlenYang2026
+author: MoldYang（老杨）
 license: "CC BY-NC-SA 4.0"
 entrypoint: SKILL.md
 tags:
